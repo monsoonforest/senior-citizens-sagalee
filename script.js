@@ -7,10 +7,10 @@ var map = L.map('map', {
 });
 
 // layer controls
-// var controlLayers = L.control.layers( null, null, {
-//       position: "topleft",
-//       collapsed: false // false = open by default
-//     }).addTo(map);
+var controlLayers = L.control.layers( null, null, {
+      position: "topleft",
+      collapsed: false // false = open by default
+    }).addTo(map);
 
 // new L.tileLayer('https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png', {
 //   attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -29,16 +29,32 @@ new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
   attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-// var metalledroads = $getJSON("metalled-roads.geojson", function (data) {
-//   geoJsonLayer = L.geoJson(data, {
-//     style: {color: 'white'},
-//     onEachFeature: onEachFeature
-//   }).addTo(map);
-// });
+var metalledroads = $getJSON("metalled-roads.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: 'white'},
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
 
+controlLayers.addOverlay(metalledroads, 'Metalled Roads');
 
-// controlLayers.addOverlay(metalledroads, 'Metalled Roads');
+var unmetalledroads = $getJSON("unmetalled-roads.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: '#e25a00'},
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
 
+controlLayers.addOverlay(unmetalledroads, 'Metalled Roads');
+
+var foottrails = $getJSON("foot-trails.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: '#eef203'},
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
+
+controlLayers.addOverlay(foottrails, 'Foot Trails');
 
 
 // Edit to upload GeoJSON data file from your local directory
@@ -47,6 +63,7 @@ $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geoj
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
+  controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 });
 
 
@@ -67,11 +84,11 @@ $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geoj
 
 // FOR MAGMA COLOUR SCHEME
 function getColor(d) {
-  return d > 110 ? '#fcfdbf' :
-         d > 40  ? '#fc8761' :
-         d > 30  ? '#b63679' :
-         d > 20  ? '#50127b' :
-         d > 10  ? '#000004' :
+  return d > 65 ? '#fcfdbf' :
+         d > 35  ? '#fc8761' :
+         d > 25  ? '#b63679' :
+         d > 15  ? '#50127b' :
+         d > 3  ? '#000004' :
                    '#fd0000';
 }
 
@@ -94,8 +111,7 @@ function highlightFeature(e) {
   var layer = e.target;
   layer.setStyle({
     weight: 4,
-    color: 'red',
-    fillOpacity: 0.9
+    fillOpacity: 0.1
   });
   info.update(layer.feature.properties);
 }
@@ -144,8 +160,8 @@ info.addTo(map);
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend'),
-    lower = [0, 10, 20, 30, 40],
-    upper = [10, 20, 30, 40, 110],
+    lower = [3, 15, 25, 35, 65],
+    upper = [15, 25, 35, 65, 110],
     labels = ['<strong> Senior Citizens <br /> Per Polling Station </strong>'],
     from, to;
   for (var i = 0; i < lower.length; i++) {
