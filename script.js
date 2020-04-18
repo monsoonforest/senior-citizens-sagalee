@@ -6,11 +6,11 @@ var map = L.map('map', {
   scrollWheelZoom: true
 });
 
-// // layer controls
-// var controlLayers = L.control.layers( null, null, {
-//       position: "topleft",
-//       collapsed: false // false = open by default
-//     }).addTo(map);
+// layer controls
+var controlLayers = L.control.layers( null, null, {
+      position: "topleft",
+      collapsed: false // false = open by default
+    }).addTo(map);
 
 // new L.tileLayer('https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png', {
 //   attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
