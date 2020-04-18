@@ -43,7 +43,7 @@ $.getJSON("unmetalled-roads.geojson", function (data) {
     style: {color: '#e25a00'},
     onEachFeature: onEachFeature
   }).addTo(map);
-controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
+controlLayers.addOverlay(geoJsonLayer, 'Unmetalled Roads');
 });
 
 
@@ -84,10 +84,10 @@ controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 // FOR MAGMA COLOUR SCHEME
 function getColor(d) {
   return d > 65 ? '#fcfdbf' :
-         d > 35  ? '#fc8761' :
-         d > 25  ? '#b63679' :
-         d > 15  ? '#50127b' :
-         d > 3  ? '#000004' :
+         d > 35 ? '#fc8761' :
+         d > 25 ? '#b63679' :
+         d > 15 ? '#50127b' :
+         d >= 3  ? '#000004' :
                    '#fd0000';
 }
 
