@@ -66,6 +66,13 @@ $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geoj
 controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 });
 
+$.getJSON("papum-pare-district.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0},
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
+
 
 // Edit ranges and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
