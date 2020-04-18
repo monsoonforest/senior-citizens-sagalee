@@ -30,7 +30,7 @@ new.L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
 });
 .addTo(map);
 
-$getJSON("metalledroads.geojson", function (data) {
+var metalledroads = $getJSON("metalledroads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: 'white'},
     onEachFeature: onEachFeature
