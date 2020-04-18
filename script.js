@@ -132,9 +132,9 @@ info.onAdd = function (map) {
 // Edit info box text and variables (such as elderly density 2014) to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Sagalee Constituency<br />Population of Senior Citizens 2020</h4>' +  (props ?
-    '<b>' + props.polling_station_village + ' ' + props.polling_station + '</b>' + ' ' + '<b>' +  props.population_above_59 + ' Senior Citizens' + '</b>'
+    '<b>' + props.polling_station_village + ' ' + props.polling_station + '</b><br />' + props.population_above_59 + ' Senior Citizens'
     : 'Hover over a Polling Station');
-};
+};  
 
 
 info.addTo(map);
@@ -144,8 +144,8 @@ info.addTo(map);
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend'),
-    lower = [0, 10, 20, 30, 40, 50],
-    upper = [10, 20, 30, 40, 50, 100],
+    lower = [0, 10, 20, 30, 40],
+    upper = [10, 20, 30, 40, 110],
     labels = ['<strong> Senior Citizens <br /> Per Polling Station </strong>'],
     from, to;
   for (var i = 0; i < lower.length; i++) {
