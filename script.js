@@ -98,7 +98,7 @@ function style(feature) {
     fillColor: getColor(feature.properties.population_above_59),
     weight: 1,
     opacity: 1,
-    color: 'black',
+    color: 'red',
     fillOpacity: 0.65
   };
 }
