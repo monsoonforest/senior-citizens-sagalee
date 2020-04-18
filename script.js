@@ -83,11 +83,11 @@ controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 
 // FOR MAGMA COLOUR SCHEME
 function getColor(d) {
-  return d > 65 ? '#fcfdbf' :
-         d > 35 ? '#fc8761' :
-         d > 25 ? '#b63679' :
-         d > 15 ? '#50127b' :
-         d >= 3  ? '#000004' :
+  return d > 65 ? '#f0f921' :
+         d > 35 ? '#f89541' :
+         d > 25 ? '#cb4778' :
+         d > 15 ? '#7e03a8' :
+         d >= 3  ? '#0d0887' :
                    '#fd0000';
 }
 
@@ -98,8 +98,8 @@ function style(feature) {
     fillColor: getColor(feature.properties.population_above_59),
     weight: 1,
     opacity: 1,
-    color: 'red',
-    fillOpacity: 0.65
+    color: 'white',
+    fillOpacity: 1
   };
 }
 
@@ -110,6 +110,7 @@ function highlightFeature(e) {
   var layer = e.target;
   layer.setStyle({
     weight: 4,
+    color: 'red',
     fillOpacity: 0.1
   });
   info.update(layer.feature.properties);
@@ -147,7 +148,7 @@ info.onAdd = function (map) {
 // Edit info box text and variables (such as elderly density 2014) to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Sagalee Constituency<br />Population of Senior Citizens 2020</h4>' +  (props ?
-    '<b>' + props.name + ' ' + props.polling_station + '</b><br />' + props.population_above_59 + ' Senior Citizens'
+    '<b>' + props.name + ' ' + props.polling_station + '</b><br />' + props.population_above_59 + ' Senior Citizens' + '<br/>' + props.
     : 'Hover over a Polling Station');
 };  
 
