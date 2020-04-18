@@ -29,44 +29,43 @@ new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
   attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-var metalledroads = $getJSON("metalled-roads.geojson", function (data) {
+$.getJSON("metalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: 'white'},
     onEachFeature: onEachFeature
   }).addTo(map);
+controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 });
 
-controlLayers.addOverlay(metalledroads, 'Metalled Roads');
 
-var unmetalledroads = $getJSON("unmetalled-roads.geojson", function (data) {
+$.getJSON("unmetalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: '#e25a00'},
     onEachFeature: onEachFeature
   }).addTo(map);
+controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 });
 
-controlLayers.addOverlay(unmetalledroads, 'Metalled Roads');
 
-var foottrails = $getJSON("foot-trails.geojson", function (data) {
+$.getJSON("foot-trails.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: '#eef203'},
     onEachFeature: onEachFeature
   }).addTo(map);
+controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
 });
 
-controlLayers.addOverlay(foottrails, 'Foot Trails');
 
 
 // Edit to upload GeoJSON data file from your local directory
-var pollingstations = $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
+$.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
-  
+controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 });
 
-controlLayers.addOverlay(pollingstations, 'Polling Stations');
 
 // Edit ranges and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
