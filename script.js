@@ -1,6 +1,6 @@
 // Edit the center point and zoom level
 var map = L.map('map', {
-  center: [27.2479241,93.4914958],
+  center: [27.355459,93.486109],
   zoom: 11  ,
   minZoom : 11,
   scrollWheelZoom: true
@@ -58,15 +58,15 @@ controlLayers.addOverlay(foottrails, 'Foot Trails');
 
 
 // Edit to upload GeoJSON data file from your local directory
-$.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
+var pollingstations = $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
-  controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
+  
 });
 
-
+controlLayers.addOverlay(pollingstations, 'Polling Stations');
 
 // Edit ranges and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
