@@ -30,10 +30,12 @@ new.L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
 });
 .addTo(map);
 
-var metalledroads = L.polyline({
-  url: "metalled-roads.geojson",
-  style: {colour:'white'}
-}).addTo(map);
+$getJSON("metalledroads.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: 'white'},
+    onEachFeature: onEachFeature
+  }).addTo(map);
+});
 
 
 controlLayers.addOverlay(metalledroads, 'Metalled Roads');
@@ -131,7 +133,7 @@ info.onAdd = function (map) {
 // Edit info box text and variables (such as elderly density 2014) to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Sagalee Constituency<br />Population of Senior Citizens 2020</h4>' +  (props ?
-    '<b>' + props.polling_station_village + ' ' + props.polling_station + '</b>' + ' ' + '<b>' +  props.population_above_59 + ' Senior Citizens' + '</b><br />'
+    '<b>' + props.polling_station_village + ' ' + props.polling_station + '</b>' + ' ' + '<b>' +  props.population_above_59 + ' Senior Citizens' + '</b>'
     : 'Hover over a Polling Station');
 };
 
