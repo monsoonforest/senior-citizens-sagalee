@@ -68,8 +68,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 
 $.getJSON("papum-pare-district.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
-    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0},
-    onEachFeature: onEachFeature
+    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0}
   }).addTo(map);
 });
 
