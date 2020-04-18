@@ -32,7 +32,7 @@ new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
 $.getJSON("metalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: 'white'},
-    onEachFeature: onEachFeature
+    
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 });
@@ -41,7 +41,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 $.getJSON("unmetalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: '#e25a00'},
-    onEachFeature: onEachFeature
+    
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Unmetalled Roads');
 });
@@ -50,7 +50,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Unmetalled Roads');
 $.getJSON("foot-trails.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: '#eef203'},
-    onEachFeature: onEachFeature
+   
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
 });
@@ -65,6 +65,14 @@ $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geoj
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 });
+
+// $.getJSON("places.geojson", function (data) {
+//   geoJsonLayer = L.geoJson(data, {
+//     style: {color: 'white'},
+    
+//   }).addTo(map);
+// controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
+// });
 
 // $.getJSON("papum-pare-district.geojson", function (data) {
 //   geoJsonLayer = L.geoJson(data, {
