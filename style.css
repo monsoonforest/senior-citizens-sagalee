@@ -27,9 +27,9 @@ body { margin:0; padding:0; }
 .controlLayers {
   width: 19px;
   height: 15px;
-  position: fixed;
-  bottom: 0;
-  right: 15;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
   margin-left: 8px;
   opacity: 0; 
 }
