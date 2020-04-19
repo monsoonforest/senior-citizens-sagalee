@@ -29,15 +29,15 @@ new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
   attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-$.getJSON("arunachal-pradesh-districts.geojson", function (data) {
-  geoJsonLayer = L.geoJson(data, {
-    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0}
-  }).addTo(map);
-});
+// $.getJSON("arunachal-pradesh-districts.geojson", function (data) {
+//   geoJsonLayer = L.geoJson(data, {
+//     style: {color: '#42ff3f', weight:1, fillOpacity: 0}
+//   }).addTo(map);
+// });
 
 $.getJSON("metalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
-    style: {color: 'white'},
+    style: {color: 'white', weight:1.5},
     
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
@@ -46,7 +46,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 
 $.getJSON("unmetalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
-    style: {color: '#e25a00'},
+    style: {color: '#e25a00', weight:1.5},
     
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Unmetalled Roads');
@@ -55,7 +55,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Unmetalled Roads');
 
 $.getJSON("foot-trails.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
-    style: {color: '#eef203'},
+    style: {color: '#eef203', weight:1.5},
    
   }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
