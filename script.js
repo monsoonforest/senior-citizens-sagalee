@@ -167,7 +167,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
   this._div.innerHTML = '<h4>Sagalee Constituency<br />Population of Senior Citizens 2020</h4>' +  (props ?
     '<b>' + props.name + ' ' + props.polling_station + '</b><br />' + props.population_above_59 + ' Senior Citizens'
-    : 'Hover over a Polling Station');
+    : 'Click on a Polling Station');
 };  
 
 
