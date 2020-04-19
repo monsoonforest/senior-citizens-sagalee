@@ -26,8 +26,8 @@ map.attributionControl
 map.attributionControl.addAttribution('Population data &copy; <a href="https://eci.gov.in/">ECI India </a>');
 
 
-new L.esri.basemapLayer('Imagery', { attribution: 'Tiles &copy; Esri'}).addTo(map);
-new L.esri.basemapLayer('ImageryLabels').addTo(map);
+new L.esri.basemapLayer('Imagery').addTo(map);
+new   L.esri.basemapLayer('ImageryLabels').addTo(map);
 
 // $.getJSON("arunachal-pradesh-districts.geojson", function (data) {
 //   geoJsonLayer = L.geoJson(data, {
