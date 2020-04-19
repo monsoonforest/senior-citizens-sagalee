@@ -63,8 +63,9 @@ $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geoj
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
-});
 controlLayers.addOverlay(pollingstations, 'Polling Stations');
+
+});
 
 // $.getJSON("places.geojson", function (data) {
 //   geoJsonLayer = L.geoJson(data, {
