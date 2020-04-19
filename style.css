@@ -20,6 +20,7 @@ body { margin:0; padding:0; }
 .legend i {
   width: 17px;
   height: 17px;
+  float: left;
   margin-right: 3px;
   opacity: 0.5;
 }
@@ -28,6 +29,6 @@ body { margin:0; padding:0; }
   height: 15px;
   float: left;
   margin-left: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   opacity: 0; 
 }
