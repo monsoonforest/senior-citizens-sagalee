@@ -75,11 +75,13 @@ controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 // controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 // });
 
-// $.getJSON("papum-pare-district.geojson", function (data) {
-//   geoJsonLayer = L.geoJson(data, {
-//     style: {color: '#42ff3f', weight:1.5, fillOpacity: 0}
-//   }).addTo(map);
-// });
+$.getJSON("papum-pare-district.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0}
+  }).addTo(map);
+ controlLayers.addOverlay(geoJsonLayer, 'Papum Pare District');
+
+});
 
 
 // Edit ranges and colors to match your data; see http://colorbrewer.org
