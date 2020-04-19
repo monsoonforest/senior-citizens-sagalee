@@ -22,11 +22,12 @@ body { margin:0; padding:0; }
   height: 17px;
   float: left;
   margin-right: 3px;
-  opacity: 1;
+  opacity: 0.5;
 }
 .controlLayers {
   width: 19px;
   height: 15px;
+  float: right;
   margin-left: 3px;
   margin-bottom: 20px;
   opacity: 0; 
