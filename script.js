@@ -69,8 +69,7 @@ $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geoj
  geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
-  }).bindTooltip(label, {permanent: true, opacity: 0.7}).openTooltip();
- .addTo(map);
+  }).bindTooltip(label, {permanent: true, opacity: 0.7}).openTooltip().addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 
 });
