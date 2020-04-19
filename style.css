@@ -24,3 +24,12 @@ body { margin:0; padding:0; }
   margin-right: 8px;
   opacity: 1;
 }
+.controlLayers {
+  width: 19px;
+  height: 15px;
+  position: fixed;
+  bottom: 0;
+  right: 15;
+  margin-left: 8px;
+  opacity: 0; 
+}
