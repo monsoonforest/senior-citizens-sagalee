@@ -10,7 +10,7 @@ var map = L.map('map', {
 // layer controls
 var controlLayers = L.control.layers( null, null, {
      position:"topleft",
-     collapsed: false // false = open by default
+     collapsed: true // truw = closed by default
     }).addTo(map);
 
 // new L.tileLayer('https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png', {
@@ -25,10 +25,9 @@ map.attributionControl
 .setPrefix('View <a href="https://github.com/monsoonforest/senior-citizens-sagalee">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 map.attributionControl.addAttribution('Population data &copy; <a href="https://eci.gov.in/">ECI India </a>');
 
-// // Basemap layer
-new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy; Esri'
-}).addTo(map);
+
+L.esri.basemapLayer('Imagery', { attribution: 'Tiles &copy; Esri'}).addTo(map);
+L.esri.basemapLayer('ImageryLabels').addTo(map);
 
 // $.getJSON("arunachal-pradesh-districts.geojson", function (data) {
 //   geoJsonLayer = L.geoJson(data, {
