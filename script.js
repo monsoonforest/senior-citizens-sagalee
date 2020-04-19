@@ -59,11 +59,11 @@ controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
 
 // Edit to upload GeoJSON data file from your local directory
 $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
-  var pollingstations = L.geoJson(data, {
+ geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
-controlLayers.addOverlay(pollingstations, 'Polling Stations');
+controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 
 });
 
@@ -163,7 +163,7 @@ info.onAdd = function (map) {
 // Edit info box text and variables (such as elderly density 2014) to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Sagalee Constituency<br />Population of Senior Citizens 2020</h4>' +  (props ?
-    '<b>' + props.name + ' ' + props.polling_station + '</b><br />' + props.population_above_59 + ' Senior Citizens'
+    '<b>' + props.name + ' ' + props.polling_station + '</b><br />' + props.population_above_59 + ' Senior Citizens' + '<br/' + props.population_btw_60_69 + ' people between 60 and 69'
     : 'Hover over a Polling Station');
 };  
 
