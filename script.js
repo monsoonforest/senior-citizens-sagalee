@@ -29,6 +29,12 @@ new L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imag
   attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
+$.getJSON("arunachal-pradesh-districts.geojson", function (data) {
+  geoJsonLayer = L.geoJson(data, {
+    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0}
+  }).addTo(map);
+});
+
 $.getJSON("metalled-roads.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: {color: 'white'},
@@ -75,13 +81,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 // controlLayers.addOverlay(geoJsonLayer, 'Metalled Roads');
 // });
 
-$.getJSON("papum-pare-district.geojson", function (data) {
-  geoJsonLayer = L.geoJson(data, {
-    style: {color: '#42ff3f', weight:1.5, fillOpacity: 0}
-  }).addTo(map);
- controlLayers.addOverlay(geoJsonLayer, 'Papum Pare District');
 
-});
 
 
 // Edit ranges and colors to match your data; see http://colorbrewer.org
