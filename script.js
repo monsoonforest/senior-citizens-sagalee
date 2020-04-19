@@ -65,7 +65,7 @@ controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
 
 // Edit to upload GeoJSON data file from your local directory
 $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
-  label = String(feature.properties.name);
+  label = String(feature.properties.name)
  geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
