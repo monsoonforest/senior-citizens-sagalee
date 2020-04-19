@@ -65,11 +65,10 @@ controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
 
 // Edit to upload GeoJSON data file from your local directory
 $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
-  label = String(feature.properties.name)
  geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
-  }).bindTooltip(label, {permanent: true, opacity: 0.7}).openTooltip().addTo(map);
+  }).addTo(map);
 controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 
 });
