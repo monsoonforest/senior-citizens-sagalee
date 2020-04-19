@@ -21,7 +21,7 @@ var controlLayers = L.control.layers( null, null, {
 
 
 // Edit links to your GitHub repo and data source credit
-map.attributionControl.addAttribution('View <a href="https://github.com/monsoonforest/senior-citizens-sagalee">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+map.attributionControl.addAttribution('View <a href="https://github.com/monsoonforest/senior-citizens-sagalee">open-source code on GitHub</a>');
 map.attributionControl.addAttribution('Population data &copy; <a href="https://eci.gov.in/">ECI India </a>');
 
 
