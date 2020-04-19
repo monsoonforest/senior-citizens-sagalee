@@ -9,6 +9,7 @@ var map = L.map('map', {
 
 // layer controls
 var controlLayers = L.control.layers( null, null, {
+      position: "bottomright",
       collapsed: false // false = open by default
     }).addTo(map);
 
