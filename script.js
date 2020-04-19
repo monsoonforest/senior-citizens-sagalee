@@ -59,12 +59,12 @@ controlLayers.addOverlay(geoJsonLayer, 'Foot Trails');
 
 // Edit to upload GeoJSON data file from your local directory
 $.getJSON("AC15-Sagalee-senior-citizen-population-polling-stations-polygons.geojson", function (data) {
-  geoJsonLayer = L.geoJson(data, {
+  var pollingstations = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
-controlLayers.addOverlay(geoJsonLayer, 'Polling Stations');
 });
+controlLayers.addOverlay(pollingstations, 'Polling Stations');
 
 // $.getJSON("places.geojson", function (data) {
 //   geoJsonLayer = L.geoJson(data, {
@@ -110,7 +110,7 @@ function getColor(d) {
 function style(feature) {
   return {
     fillColor: getColor(feature.properties.population_above_59),
-    weight: 1,
+    weight: 0.8,
     opacity: 1,
     color: 'white',
     fillOpacity: 1
