@@ -9,8 +9,7 @@ var map = L.map('map', {
 
 // layer controls
 var controlLayers = L.control.layers( null, null, {
-      position: "bottomleft",
-      collapsed: false // false = open by default
+     // collapsed: false // false = open by default
     }).addTo(map);
 
 // new L.tileLayer('https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png', {
