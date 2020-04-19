@@ -6,9 +6,10 @@ var map = L.map('map', {
   scrollWheelZoom: true
 });
 
+
 // layer controls
 var controlLayers = L.control.layers( null, null, {
-      position: "topleft",
+      position: "bottomleft",
       collapsed: false // false = open by default
     }).addTo(map);
 
